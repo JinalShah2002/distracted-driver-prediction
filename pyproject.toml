@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "Distracted Driver Prediction"
+version = "0.1.0"
+description = "Using machine learning to predict whether a driver is distracted or not."
+authors = ["Jinal.Shah <28205508+JinalShah2002@users.noreply.github.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
