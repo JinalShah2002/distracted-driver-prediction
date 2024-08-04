@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Using machine learning to predict whether a driver is distracted or not."
 authors = ["Jinal.Shah <28205508+JinalShah2002@users.noreply.github.com>"]
 license = "MIT"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.9"
