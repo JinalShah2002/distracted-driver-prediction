@@ -11,6 +11,7 @@ import torch
 from torch.utils.data import Dataset
 import pandas as pd
 import cv2
+import matplotlib.pyplot as plt
 
 # Class for the State Farm Distracted Driver Detection dataset
 class StateFarmDD(Dataset):
@@ -35,3 +36,14 @@ class StateFarmDD(Dataset):
             image = self.transformation_pipeline(image)
         
         return image, label
+
+# Testing the dataset class(es)
+if __name__ == '__main__':
+    # Testing the StateFarmDD class
+    statefarm_dd = StateFarmDD('../data/training.csv')
+    image, label = statefarm_dd[0]
+    print(len(statefarm_dd))
+    print(label)
+    plt.imshow(image)
+    plt.axis('off')
+    plt.show()
