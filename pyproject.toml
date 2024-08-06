@@ -17,6 +17,7 @@ opencv-python = "^4.10.0"
 scikit-learn = "^1.5.1"
 torch = {url="https://download.pytorch.org/whl/cpu/torch-2.2.0-cp39-none-macosx_10_9_x86_64.whl"}
 torchvision = {url="https://download.pytorch.org/whl/cpu/torchvision-0.17.0-cp39-cp39-macosx_10_13_x86_64.whl"}
+tqdm = "^4.66.5"
 
 [tool.poetry.dev-dependencies]
 

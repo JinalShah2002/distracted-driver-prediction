@@ -1,0 +1,2 @@
+model_id,model_name,train_CE_loss,validation_CE_loss,train_acc,validation_acc
+1,baseline_model,0.16663798138261884,0.3195188742118966,0.9454261664529795,0.9072463768115943

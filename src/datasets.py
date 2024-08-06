@@ -19,6 +19,7 @@ class StateFarmDD(Dataset):
     def __init__(self,annotations_path,transform_pipeline=None):
         self.annotations = pd.read_csv(annotations_path)
         self.transformation_pipeline = transform_pipeline
+        self.label_to_int_dict = {'c0':0,'c1':1,'c2':2,'c3':3,'c4':4,'c5':5,'c6':6,'c7':7,'c8':8,'c9':9}
     
     # Method to get the length of the dataset
     def __len__(self):
@@ -35,7 +36,7 @@ class StateFarmDD(Dataset):
         if self.transformation_pipeline:
             image = self.transformation_pipeline(image)
         
-        return image, label
+        return image, self.label_to_int_dict[label]
 
 # Testing the dataset class(es)
 if __name__ == '__main__':
