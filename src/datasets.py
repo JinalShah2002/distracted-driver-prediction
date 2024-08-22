@@ -9,8 +9,8 @@ I will need.
 """
 import torch
 from torch.utils.data import Dataset
+from torchvision.transforms import v2
 import pandas as pd
-import cv2
 import matplotlib.pyplot as plt
 
 # Class for the State Farm Distracted Driver Detection dataset
@@ -29,22 +29,27 @@ class StateFarmDD(Dataset):
     def __getitem__(self,index):
         label = self.annotations.iloc[index,1]
         image_name = self.annotations.iloc[index,2]
-        image = cv2.imread(f'../data/imgs/train/{label}/{image_name}')
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        image = plt.imread(f'../data/imgs/train/{label}/{image_name}')
 
         # Throwing image through pipeline if it exists
         if self.transformation_pipeline:
-            image = self.transformation_pipeline(image)
-        
-        return image, self.label_to_int_dict[label]
+            transformed_image = self.transformation_pipeline(image.copy()).squeeze(0)
+            return transformed_image, self.label_to_int_dict[label]
+        else:
+            return image, self.label_to_int_dict[label]
 
 # Testing the dataset class(es)
 if __name__ == '__main__':
     # Testing the StateFarmDD class
-    statefarm_dd = StateFarmDD('../data/training.csv')
+    transformation_pipeline = v2.Compose([
+        v2.ToImage(),
+        v2.Grayscale(),
+        v2.CenterCrop(500),
+    ])
+    statefarm_dd = StateFarmDD('../data/training.csv',transformation_pipeline)
     image, label = statefarm_dd[0]
-    print(len(statefarm_dd))
+    print(image.shape)
     print(label)
-    plt.imshow(image)
+    plt.imshow(image,cmap='gray')
     plt.axis('off')
     plt.show()
