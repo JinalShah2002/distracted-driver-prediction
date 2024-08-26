@@ -24,8 +24,8 @@ class MLMetricsLogger:
                 writer = csv.DictWriter(f,fieldnames=self.columns)
                 writer.writeheader()
     
-    # Function to log metrics
-    def log_metrics(self,model_id,model_name,training_targets,training_predictions,val_targets,val_predictions):
+    # Function to calculate the metrics
+    def calculate_metrics(self,model_id,model_name,training_targets,training_predictions,val_targets,val_predictions):
         
         # Getting the metrics
         train_CE_loss = log_loss(training_targets,training_predictions)
@@ -37,10 +37,19 @@ class MLMetricsLogger:
         train_acc = accuracy_score(training_targets,train_class_preds)
         valid_acc = accuracy_score(val_targets,valid_class_preds)
         
-        with open(self.filename,'a',newline='') as f:
-            writer = csv.DictWriter(f,fieldnames=self.columns)
-            writer.writerow({'model_id':model_id,'model_name':model_name,'train_CE_loss':train_CE_loss,
-                             'train_acc':train_acc,'validation_CE_loss':validation_CE_loss,'validation_acc':valid_acc})
+        return {'model_id':model_id,'model_name':model_name,'train_CE_loss':train_CE_loss,
+                'train_acc':train_acc,'validation_CE_loss':validation_CE_loss,'validation_acc':valid_acc}
+    
+    # Function to log metrics
+    def log_metrics(self,metrics):
+        metrics_table = self.read_metrics()
+        model_ids = [int(row['model_id']) for row in metrics_table]
+        if int(metrics['model_id']) in model_ids:
+            raise ValueError('Model ID already exists in the metrics table. Please use a different model ID.')
+        else:
+            with open(self.filename,'a',newline='') as f:
+                writer = csv.DictWriter(f,fieldnames=self.columns)
+                writer.writerow(metrics)
     
     # Function to read metrics -> returns a list 
     def read_metrics(self):
