@@ -14,7 +14,6 @@ from metricsLogger import MLMetricsLogger
 import joblib
 import torch
 from torch.utils.data import DataLoader, TensorDataset
-from sklearn.metrics import log_loss
 
 # Getting the data
 training_data = pd.read_parquet('../data/train.parquet')

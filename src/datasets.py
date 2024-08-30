@@ -16,9 +16,10 @@ import matplotlib.pyplot as plt
 # Class for the State Farm Distracted Driver Detection dataset
 class StateFarmDD(Dataset):
     # Constructor
-    def __init__(self,annotations_path,transform_pipeline=None):
+    def __init__(self,annotations_path,path_prefix='../data/imgs/train',transform_pipeline=None):
         self.annotations = pd.read_csv(annotations_path)
         self.transformation_pipeline = transform_pipeline
+        self.path_prefix = path_prefix
         self.label_to_int_dict = {'c0':0,'c1':1,'c2':2,'c3':3,'c4':4,'c5':5,'c6':6,'c7':7,'c8':8,'c9':9}
     
     # Method to get the length of the dataset
@@ -29,7 +30,7 @@ class StateFarmDD(Dataset):
     def __getitem__(self,index):
         label = self.annotations.iloc[index,1]
         image_name = self.annotations.iloc[index,2]
-        image = plt.imread(f'../data/imgs/train/{label}/{image_name}')
+        image = plt.imread(f'{self.path_prefix}/{label}/{image_name}')
 
         # Throwing image through pipeline if it exists
         if self.transformation_pipeline:
