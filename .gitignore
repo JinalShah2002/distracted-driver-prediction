@@ -5,6 +5,7 @@ notebooks/catboost_info
 models/cnn_2.pth
 models/cnn_3.pth
 models/cnn_4.pth
+models/cnn_5.pth
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
