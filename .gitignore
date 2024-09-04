@@ -6,6 +6,7 @@ models/cnn_2.pth
 models/cnn_3.pth
 models/cnn_4.pth
 models/cnn_5.pth
+models/vgg11_last_layer.pth
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
