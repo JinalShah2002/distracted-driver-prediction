@@ -2,12 +2,10 @@
 data/
 resources/
 notebooks/catboost_info
-models/cnn_2.pth
-models/cnn_3.pth
-models/cnn_4.pth
-models/cnn_5.pth
+models/cnn_*.pth
 models/vgg11*.pth
 models/vgg16*.pth
+models/resnet18*.pth
 
 
 # Byte-compiled / optimized / DLL files
