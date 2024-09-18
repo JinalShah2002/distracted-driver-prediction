@@ -6,6 +6,7 @@ models/cnn_*.pth
 models/vgg11*.pth
 models/vgg16*.pth
 models/resnet18*.pth
+models/vit*.pth
 
 
 # Byte-compiled / optimized / DLL files

@@ -378,6 +378,17 @@ files = [
 ]
 
 [[package]]
+name = "einops"
+version = "0.8.0"
+description = "A new flavour of deep learning operations"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "einops-0.8.0-py3-none-any.whl", hash = "sha256:9572fb63046264a862693b0a87088af3bdc8c068fde03de63453cbbde245465f"},
+    {file = "einops-0.8.0.tar.gz", hash = "sha256:63486517fed345712a8385c100cb279108d9d47e6ae59099b07657e983deae85"},
+]
+
+[[package]]
 name = "exceptiongroup"
 version = "1.2.2"
 description = "Backport of PEP 654 (exception groups)"
@@ -2177,6 +2188,22 @@ socks = ["pysocks (>=1.5.6,!=1.5.7,<2.0)"]
 zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
+name = "vit-pytorch"
+version = "1.7.12"
+description = "Vision Transformer (ViT) - Pytorch"
+optional = false
+python-versions = "*"
+files = [
+    {file = "vit_pytorch-1.7.12-py3-none-any.whl", hash = "sha256:7f579a908449bf85d5d283f937dd218c45d1eddefe65b3ca08cb3010afd8a9a5"},
+    {file = "vit_pytorch-1.7.12.tar.gz", hash = "sha256:6a7be878246f12d21627f4db6074777bb1419484b0dd236daa6caf4e99eac29a"},
+]
+
+[package.dependencies]
+einops = ">=0.7.0"
+torch = ">=1.10"
+torchvision = "*"
+
+[[package]]
 name = "wcwidth"
 version = "0.2.13"
 description = "Measures the displayed width of unicode strings in a terminal"
@@ -2205,4 +2232,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "fa9266544f81aab36cb1b8f8debfe6b3f1541cb2535fe070304d8455e0eda45d"
+content-hash = "4728b5df7eda45acfcc29a3c235213beaa87bf98f6e61ef709feeb9024c6810d"

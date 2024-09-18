@@ -20,6 +20,7 @@ torchvision = {url="https://download.pytorch.org/whl/cpu/torchvision-0.17.0-cp39
 tqdm = "^4.66.5"
 pyarrow = "^17.0.0"
 catboost = "^1.2.5"
+vit-pytorch = "^1.7.12"
 
 [tool.poetry.dev-dependencies]
 
